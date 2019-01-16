@@ -22,6 +22,7 @@ BasicMatrix::BasicMatrix(const BasicMatrix &obj){
     
 }
 //methods
+BasicMatrix::BasicMatrix transposeMatrix();
 //operators
 
 //private
