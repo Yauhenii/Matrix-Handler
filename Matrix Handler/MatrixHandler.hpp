@@ -20,7 +20,6 @@ namespace matrixxx {
         //constructors
         MatrixHandler();
         //methods
-        double foo(double a);
     private:
         //methods
     

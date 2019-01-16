@@ -15,9 +15,6 @@ using namespace matrixxx;
 MatrixHandler::MatrixHandler(){
     //do nothing
 }
-double MatrixHandler::foo(double a){
-    return a+1;
-}
 //private
 
 //methods
