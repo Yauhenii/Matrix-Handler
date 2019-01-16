@@ -20,6 +20,7 @@ namespace matrixxx {
         BasicMatrix(int m,int n, double val);
         BasicMatrix(const BasicMatrix &obj);
         //methods
+        BasicMatrix transposeMatrix();
         //operators
     private:
         //fields
