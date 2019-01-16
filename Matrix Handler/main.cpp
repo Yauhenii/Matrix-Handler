@@ -14,5 +14,6 @@ using namespace matrixxx;
 int main(int argc, const char * argv[]) {
     MatrixHandler matrixHandler;
     std::cout<<matrixHandler.foo(3);
+    std::cout<<"Hello World!\n";
     return 0;
 }
