@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6AD2C11D21EF8DAB00011330 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AD2C11C21EF8DAB00011330 /* main.cpp */; };
+		6AD2C12521EF99EF00011330 /* BasicMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AD2C12321EF99EF00011330 /* BasicMatrix.cpp */; };
+		6AD2C12821EF9A0000011330 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AD2C12621EF9A0000011330 /* Matrix.cpp */; };
+		6AD2C12B21EF9C7F00011330 /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AD2C12921EF9C7F00011330 /* Vector.cpp */; };
+		6AD2C12E21EF9CE200011330 /* MatrixHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AD2C12C21EF9CE200011330 /* MatrixHandler.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,14 @@
 /* Begin PBXFileReference section */
 		6AD2C11921EF8DAB00011330 /* Matrix Handler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Matrix Handler"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AD2C11C21EF8DAB00011330 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6AD2C12321EF99EF00011330 /* BasicMatrix.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BasicMatrix.cpp; sourceTree = "<group>"; };
+		6AD2C12421EF99EF00011330 /* BasicMatrix.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BasicMatrix.hpp; sourceTree = "<group>"; };
+		6AD2C12621EF9A0000011330 /* Matrix.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
+		6AD2C12721EF9A0000011330 /* Matrix.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Matrix.hpp; sourceTree = "<group>"; };
+		6AD2C12921EF9C7F00011330 /* Vector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
+		6AD2C12A21EF9C7F00011330 /* Vector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vector.hpp; sourceTree = "<group>"; };
+		6AD2C12C21EF9CE200011330 /* MatrixHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MatrixHandler.cpp; sourceTree = "<group>"; };
+		6AD2C12D21EF9CE200011330 /* MatrixHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MatrixHandler.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,14 @@
 			isa = PBXGroup;
 			children = (
 				6AD2C11C21EF8DAB00011330 /* main.cpp */,
+				6AD2C12C21EF9CE200011330 /* MatrixHandler.cpp */,
+				6AD2C12D21EF9CE200011330 /* MatrixHandler.hpp */,
+				6AD2C12921EF9C7F00011330 /* Vector.cpp */,
+				6AD2C12A21EF9C7F00011330 /* Vector.hpp */,
+				6AD2C12321EF99EF00011330 /* BasicMatrix.cpp */,
+				6AD2C12421EF99EF00011330 /* BasicMatrix.hpp */,
+				6AD2C12621EF9A0000011330 /* Matrix.cpp */,
+				6AD2C12721EF9A0000011330 /* Matrix.hpp */,
 			);
 			path = "Matrix Handler";
 			sourceTree = "<group>";
@@ -118,7 +138,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AD2C12E21EF9CE200011330 /* MatrixHandler.cpp in Sources */,
+				6AD2C12821EF9A0000011330 /* Matrix.cpp in Sources */,
 				6AD2C11D21EF8DAB00011330 /* main.cpp in Sources */,
+				6AD2C12B21EF9C7F00011330 /* Vector.cpp in Sources */,
+				6AD2C12521EF99EF00011330 /* BasicMatrix.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
