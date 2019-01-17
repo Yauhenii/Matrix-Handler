@@ -66,6 +66,31 @@ BasicMatrix BasicMatrix::getTransposedMatrix(){
     matrix.transpose();
     return matrix;
 }
+bool BasicMatrix::multiplyBy(BasicMatrix obj){
+    if(n==obj.m){  //this:= m x n, obj:= obj.m X obj.n
+        double** A = new double*[m];
+        for(int i=0; i<m;i++){
+            A[i]=new double[obj.n];
+        }
+        
+        for(int i=0; i<m; i++){
+            for(int j=0; j<obj.n; j++){
+                for(int k=0;k<n;k++){
+                    A[i][j]=this->A[i][k]*obj.A[k][j];
+                }
+            }
+        }
+        
+        this->freeMem();
+        this->A=A;
+        n=obj.n;
+        
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 //operators
 
 //private

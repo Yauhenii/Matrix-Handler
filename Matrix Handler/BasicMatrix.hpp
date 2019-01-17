@@ -27,6 +27,7 @@ namespace matrixxx {
         void fillWithRandomPositiveNumbers(int val); //fill matrix with random whole numbers, number <= 'val', number>=0
         void transpose(); //transpose matrix ?
         BasicMatrix getTransposedMatrix(); //return transposed matrix ?
+        bool multiplyBy(BasicMatrix obj);
         //operators
         friend std::ostream& operator<<(std::ostream& os, const BasicMatrix& obj); //put matrix to the stream 'os' ?
     private:

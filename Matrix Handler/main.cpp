@@ -18,7 +18,7 @@ namespace matrixxx {
 std::ostream& operator<<(std::ostream& os, const BasicMatrix& obj){
     for(int i=0;i<obj.m;i++){
         for(int j=0;j<obj.n;j++){
-            os<<obj.A[i][j]<<std::setw(6); //setprecision(3)
+            os<<std::setw(6)<<obj.A[i][j]; //setprecision(3)
         }
         os<<endl;
     }
@@ -30,10 +30,10 @@ std::ostream& operator<<(std::ostream& os, const BasicMatrix& obj){
 using namespace matrixxx;
 
 int main(int argc, const char * argv[]) {
-    BasicMatrix m(5,2);
+    BasicMatrix m(2,2);
     m.fillWithRandomPositiveNumbers(3);
-    BasicMatrix n(m);
     cout<<m<<endl;
-    cout<<n.getTransposedMatrix();
+    m.multiplyBy(m);
+    cout<<m<<endl;
     return 0;
 }
