@@ -14,10 +14,17 @@
 
 namespace matrixxx {
     
-    class Vector : BasicMatrix{
+    class Vector : public BasicMatrix{
     public:
-        
-    private:
+        //constructors
+        Vector(int n);
+        Vector(int n, double val);
+        Vector(const Vector &obj);
+        //methods
+        int getN();
+        double getElem(int i);
+        void setElem(int i, double val);
+    protected:
         
     };
     

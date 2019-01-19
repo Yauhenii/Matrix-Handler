@@ -14,10 +14,20 @@
 
 namespace matrixxx {
     
-    class Matrix : BasicMatrix{
+    class Matrix : public BasicMatrix{
     public:
-    
-    private:
+        //constructors
+        Matrix(int m,int n);
+        Matrix(int m,int n, double val);
+        Matrix(const Matrix &obj);
+        //methods
+        int getM();
+        int getN();
+        double getElem(int i, int j);
+        void setElem(int i,int j, double val);
+        bool isSquare();
+        bool isSymmetric();
+    protected:
         
     };
     

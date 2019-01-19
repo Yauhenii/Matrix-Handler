@@ -10,6 +10,7 @@
 #define MatrixHandler_hpp
 
 #include <stdio.h>
+#include <tuple>
 #include "Matrix.hpp"
 #include "Vector.hpp"
 
@@ -20,6 +21,8 @@ namespace matrixxx {
         //constructors
         MatrixHandler();
         //methods
+        bool toLUDecomposition(Matrix matrix, Matrix& L, Matrix& U);
+        bool toLDLTDecomposition(Matrix matrix, Matrix& L, Matrix& D);
     private:
         //methods
     

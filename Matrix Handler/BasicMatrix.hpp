@@ -23,14 +23,15 @@ namespace matrixxx {
         //destructor
         ~BasicMatrix();
         //methods
-        void fillWithRandomNumbers(int val); //fill matrix with random whole numbers, |number| <= 'val'
-        void fillWithRandomPositiveNumbers(int val); //fill matrix with random whole numbers, number <= 'val', number>=0
+        //void fillWithRandomNumbers(int maxVal); //fill matrix with random whole numbers, |number| <= 'val'
+        void fillWithRandomPositiveNumbers(int maxVal); //fill matrix with random whole numbers, number <= 'val', number>=0
+        void fillWithRandomPositiveNumbersSymmetric(int maxVal); //fill matrix with random whole numbers, number <= 'val', number>=0. Matrix is symmetric
         void transpose(); //transpose matrix ?
         BasicMatrix getTransposedMatrix(); //return transposed matrix ?
-        bool multiplyBy(BasicMatrix obj);
+        bool multiplyBy(BasicMatrix obj); //multiply this by obj matrix. If it's impossible, return 0; else return 1
         //operators
         friend std::ostream& operator<<(std::ostream& os, const BasicMatrix& obj); //put matrix to the stream 'os' ?
-    private:
+    protected:
         //fields
         int m;
         int n;
@@ -38,12 +39,12 @@ namespace matrixxx {
         //methods
         void allocateMem(); //allocate mem for matrix 'A'
         void freeMem(); //free mem of matrix 'A'
-        void fill(double val=0); //fill matrix 'A' whit value 'val' def value = 0
+        void fill(double val=0); //fill matrix 'A' with value 'val', def value = 0
         void copyMatrixArray(double** source, double** destination); //copy values from source array to destination array
-        void swap(double& a,double& b);
-        void swap(int& a,int& b);
+        void swap(double& a,double& b); //swap double numbers
+        void swap(int& a,int& b); //swap int numbers
         void transposeAsSquare(); //transpose square matrix
-        void transposeAsCommon(); //transpose matrix
+        void transposeAsCommon(); //transpose common matrix
     };
 }
 

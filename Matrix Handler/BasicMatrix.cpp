@@ -7,8 +7,6 @@
 //
 
 #include "BasicMatrix.hpp"
-#include <ctime>
-#include <cstdlib>
 
 using namespace matrixxx;
 
@@ -45,12 +43,19 @@ BasicMatrix::~BasicMatrix(){
 //        }
 //    }
 //}
-void BasicMatrix::fillWithRandomPositiveNumbers(int val){
-    srand(static_cast<unsigned int>(time(NULL)));
+void BasicMatrix::fillWithRandomPositiveNumbers(int maxVal){
     for(int i=0;i<m;i++){
         for(int j=0;j<n;j++){
-            A[i][j]=(double)(rand() % val + 1);
+            A[i][j]=(double)(rand() % maxVal + 1);
         }
+    }
+}
+void BasicMatrix::fillWithRandomPositiveNumbersSymmetric(int maxVal){
+    for(int i=0; i<m; i++){
+        for(int j=0; j<i; j++){
+            A[i][j]=A[j][i]=(double)(rand() % maxVal + 1);
+        }
+        A[i][i]=(double)(rand() % maxVal + 1);
     }
 }
 void BasicMatrix::transpose(){
@@ -75,8 +80,9 @@ bool BasicMatrix::multiplyBy(BasicMatrix obj){
         
         for(int i=0; i<m; i++){
             for(int j=0; j<obj.n; j++){
+                A[i][j]=0;
                 for(int k=0;k<n;k++){
-                    A[i][j]=this->A[i][k]*obj.A[k][j];
+                    A[i][j]+=this->A[i][k]*obj.A[k][j];
                 }
             }
         }
@@ -93,7 +99,7 @@ bool BasicMatrix::multiplyBy(BasicMatrix obj){
 }
 //operators
 
-//private
+//protected
 //methods
 void BasicMatrix::allocateMem(){
     A=new double*[m];
