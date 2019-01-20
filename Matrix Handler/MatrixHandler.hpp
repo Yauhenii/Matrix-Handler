@@ -21,8 +21,8 @@ namespace matrixxx {
         //constructors
         MatrixHandler();
         //methods
-        bool toLUDecomposition(Matrix matrix, Matrix& L, Matrix& U);
-        bool toLDLTDecomposition(Matrix matrix, Matrix& L, Matrix& D);
+        std::tuple<Matrix,Matrix> getLUDecomposition(Matrix matrix);
+        std::tuple<Matrix,Matrix> getLDLTDecomposition(Matrix matrix);
         bool transpose(Matrix& matrix); //transpose matrix
         Matrix getTransposed(Matrix matrix); //return transposed matrix
         Matrix getTransposed(Vector vec); //return transposed vector

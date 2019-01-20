@@ -35,14 +35,16 @@ std::ostream& operator<<(std::ostream& os, const BasicMatrix& obj){
 int main(int argc, const char * argv[]) {
     srand(static_cast<unsigned int>(time(NULL)));
     
-    Vector vec1(3),vec2(3, 3);
-    vec1.fillWithRandomPositiveNumbers(5);
-    Vector vec3(vec1);
-    cout<<"1:"<<vec1<<endl<<"2:"<<vec2<<endl<<"3:"<<vec3<<endl;
-    vec3.setElem(2, 100);
-    cout<<"1:"<<vec1<<endl<<"2:"<<vec2<<endl<<"3:"<<vec3<<endl;
-    MatrixHandler matrixHandler;
-    cout<<matrixHandler.getTransposed(vec3)<<endl;
+    Matrix A(3,3);
+    A.fillWithRandomPositiveNumbers(5);
+    cout<<A<<endl;
+    MatrixHandler m;
+    if(A.isSquare()){
+        auto tupl=m.getLUDecomposition(A);
+        cout<<get<0>(tupl)<<endl;
+        cout<<get<1>(tupl)<<endl;
+    }
+    
     return 0;
 }
 

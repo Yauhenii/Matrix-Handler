@@ -16,9 +16,10 @@ MatrixHandler::MatrixHandler(){
     //do nothing
 }
 //methods
-bool MatrixHandler::toLUDecomposition(Matrix matrix, Matrix& L, Matrix& U){
+std::tuple<Matrix,Matrix> MatrixHandler::getLUDecomposition(Matrix matrix){
+    int n=matrix.getN();
+    Matrix L(n,n,0),U(n,n,0);
     if(matrix.isSquare()){
-        int n=matrix.getN();
         for(int k=0;k<n-1; k++){
             for(int i=k+1;i<n;i++){
                 matrix.setElem(i, k, matrix.getElem(i, k)/matrix.getElem(k, k));
@@ -52,14 +53,14 @@ bool MatrixHandler::toLUDecomposition(Matrix matrix, Matrix& L, Matrix& U){
                 }
             }
         }
-        return true;
     }
-    return false;
+    return std::make_tuple(L,U);
 }
-bool MatrixHandler::toLDLTDecomposition(Matrix matrix, Matrix& L, Matrix& D){
+std::tuple<Matrix,Matrix> MatrixHandler::getLDLTDecomposition(Matrix matrix){
+    int n=matrix.getN();
+    Matrix L(n,n,0),D(n,n,0);
     if(matrix.isSquare() && matrix.isSymmetric()){
-        int n=matrix.getN();
-        Vector T(n); 
+        Vector T(n);
         for(int k=0; k<n-1;k++){
             for(int i=k+1; i<n; i++){
                 T.setElem(i, matrix.getElem(i, k));
@@ -94,9 +95,8 @@ bool MatrixHandler::toLDLTDecomposition(Matrix matrix, Matrix& L, Matrix& D){
                 }
             }
         }
-        return true;
     }
-    return false;
+    return std::make_tuple(L,D);
 }
 bool MatrixHandler::transpose(Matrix& matrix){
     if(matrix.isSquare()){
@@ -121,3 +121,4 @@ Matrix MatrixHandler::getTransposed(Matrix matrix){
 //private
 
 //methods
+

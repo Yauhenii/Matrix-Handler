@@ -24,9 +24,11 @@ namespace matrixxx {
         int getM();
         int getN();
         double getElem(int i, int j);
-        void setElem(int i,int j, double val);
+        double setElem(int i,int j, double val); //set 'val' to Aij, return previous value of Aij
         bool isSquare();
         bool isSymmetric();
+        double getTrace(); //if matrix isn't square, return sum of diagonal elements, while i<=min(m,n)
+        Matrix getSubMatrix(int m,int n);
     protected:
         
     };

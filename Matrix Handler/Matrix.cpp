@@ -28,8 +28,10 @@ int Matrix::getN(){
 double Matrix::getElem(int i, int j){
     return A[i][j];
 }
-void Matrix::setElem(int i,int j, double val){
+double Matrix::setElem(int i,int j, double val){
+    double prevValue=A[i][j];
     A[i][j]=val;
+    return prevValue;
 }
 bool Matrix::isSquare(){
     return m==n;
@@ -46,4 +48,33 @@ bool Matrix::isSymmetric(){
         return true;
     }
     return false;
+}
+double Matrix::getTrace(){
+    double trace=0;
+    if(isSquare()){
+        for(int i=0;i<n;i++){
+            trace+=A[i][i];
+        }
+    }
+    else{
+        int i=0;
+        while(i<m && i<n){
+            trace+=A[i][i];
+        }
+    }
+    return trace;
+}
+Matrix Matrix::getSubMatrix(int m, int n){
+    Matrix subMatrix(m,n,0);
+    if(m<this->m && n<this->n){
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                subMatrix.A[i][j]=this->A[i][j];
+            }
+        }
+    }
+    else if(m==this->m && n==this->n){
+        return *this;
+    }
+    return subMatrix;
 }
