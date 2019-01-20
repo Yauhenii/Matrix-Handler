@@ -23,6 +23,9 @@ namespace matrixxx {
         //methods
         bool toLUDecomposition(Matrix matrix, Matrix& L, Matrix& U);
         bool toLDLTDecomposition(Matrix matrix, Matrix& L, Matrix& D);
+        bool transpose(Matrix& matrix); //transpose matrix
+        Matrix getTransposed(Matrix matrix); //return transposed matrix
+        Matrix getTransposed(Vector vec); //return transposed vector
     private:
         //methods
     

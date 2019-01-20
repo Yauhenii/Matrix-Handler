@@ -35,20 +35,14 @@ std::ostream& operator<<(std::ostream& os, const BasicMatrix& obj){
 int main(int argc, const char * argv[]) {
     srand(static_cast<unsigned int>(time(NULL)));
     
-    Matrix A(3,3);
-    A.fillWithRandomPositiveNumbersSymmetric(3);
+    Vector vec1(3),vec2(3, 3);
+    vec1.fillWithRandomPositiveNumbers(5);
+    Vector vec3(vec1);
+    cout<<"1:"<<vec1<<endl<<"2:"<<vec2<<endl<<"3:"<<vec3<<endl;
+    vec3.setElem(2, 100);
+    cout<<"1:"<<vec1<<endl<<"2:"<<vec2<<endl<<"3:"<<vec3<<endl;
     MatrixHandler matrixHandler;
-    cout<<A<<endl;
-    int n=A.getM();
-    Matrix L(n,n),U(n,n),L1(n,n),D(n,n);
-    if(matrixHandler.toLUDecomposition(A, L, U)){
-        cout<<L<<endl;
-        cout<<U<<endl;
-    }
-    if(matrixHandler.toLDLTDecomposition(A, L1, D)){
-        cout<<L1<<endl;
-        cout<<D<<endl;
-    }
+    cout<<matrixHandler.getTransposed(vec3)<<endl;
     return 0;
 }
 

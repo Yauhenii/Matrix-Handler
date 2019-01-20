@@ -59,13 +59,13 @@ bool MatrixHandler::toLUDecomposition(Matrix matrix, Matrix& L, Matrix& U){
 bool MatrixHandler::toLDLTDecomposition(Matrix matrix, Matrix& L, Matrix& D){
     if(matrix.isSquare() && matrix.isSymmetric()){
         int n=matrix.getN();
-        BasicMatrix T(n,1); // change to Vector T
+        Vector T(n); 
         for(int k=0; k<n-1;k++){
             for(int i=k+1; i<n; i++){
-                T.setElem(i, 1, matrix.getElem(i, k));
+                T.setElem(i, matrix.getElem(i, k));
                 matrix.setElem(i, k, matrix.getElem(i, k)/matrix.getElem(k, k));
                 for(int j=k+1; j<i; j++){
-                    matrix.setElem(i, j, matrix.getElem(i, j)-matrix.getElem(i, k)*T.getElem(j, 1));
+                    matrix.setElem(i, j, matrix.getElem(i, j)-matrix.getElem(i, k)*T.getElem(j));
                 }
             }
         }
@@ -97,6 +97,26 @@ bool MatrixHandler::toLDLTDecomposition(Matrix matrix, Matrix& L, Matrix& D){
         return true;
     }
     return false;
+}
+bool MatrixHandler::transpose(Matrix& matrix){
+    if(matrix.isSquare()){
+        return matrix.transposeAsSquare();
+    }
+    else{
+        return matrix.transposeAsCommon();
+    }
+}
+Matrix MatrixHandler::getTransposed(Vector vec){
+    int n=vec.getN();
+    Matrix matrix(n,1);
+    for(int i=0;i<n; i++){
+        matrix.setElem(i, 0, vec.getElem(i));
+    }
+    return matrix;
+}
+Matrix MatrixHandler::getTransposed(Matrix matrix){
+    transpose(matrix);
+    return matrix;
 }
 //private
 

@@ -21,7 +21,7 @@ BasicMatrix::BasicMatrix(int m,int n, double val){
     this->m=m;
     this->n=n;
     allocateMem();
-    fill();
+    fill(val);
 }
 BasicMatrix::BasicMatrix(const BasicMatrix &obj){
     m=obj.m;
@@ -58,19 +58,6 @@ void BasicMatrix::fillWithRandomPositiveNumbersSymmetric(int maxVal){
         A[i][i]=(double)(rand() % maxVal + 1);
     }
 }
-void BasicMatrix::transpose(){
-    if(m==n){
-        transposeAsSquare();
-    }
-    else{
-        transposeAsCommon();
-    }
-}
-BasicMatrix BasicMatrix::getTransposedMatrix(){
-    BasicMatrix matrix(*this);
-    matrix.transpose();
-    return matrix;
-}
 bool BasicMatrix::multiplyBy(BasicMatrix obj){
     if(n==obj.m){  //this:= m x n, obj:= obj.m X obj.n
         double** A = new double*[m];
@@ -96,6 +83,33 @@ bool BasicMatrix::multiplyBy(BasicMatrix obj){
     else{
         return false;
     }
+}
+bool BasicMatrix::transposeAsSquare(){
+    if(m==n){
+        for(int i=0; i<m; i++){
+            for(int j=0; j<i; j++){
+                swap(A[i][j], A[j][i]);
+            }
+        }
+        return true;
+    }
+    return false;
+}
+bool BasicMatrix::transposeAsCommon(){
+    double** A = new double*[n];
+    for(int i=0; i<n;i++){
+        A[i]=new double[m];
+    }
+    
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            A[j][i]=this->A[i][j];
+        }
+    }
+    this->freeMem();
+    this->A=A;
+    swap(m,n);
+    return true;
 }
 //operators
 
@@ -136,27 +150,4 @@ void BasicMatrix::swap(int& a, int& b){
     int temp=a;
     a=b;
     b=temp;
-}
-void BasicMatrix::transposeAsSquare(){
-    for(int i=0; i<m; i++){
-        for(int j=0; j<i; j++){
-            swap(A[i][j], A[j][i]);
-        }
-    }
-
-}
-void BasicMatrix::transposeAsCommon(){
-    double** A = new double*[n];
-    for(int i=0; i<n;i++){
-        A[i]=new double[m];
-    }
-    
-    for(int i=0;i<m;i++){
-        for(int j=0;j<n;j++){
-            A[j][i]=this->A[i][j];
-        }
-    }
-    this->freeMem();
-    this->A=A;
-    swap(m,n);
 }

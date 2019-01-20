@@ -26,9 +26,9 @@ namespace matrixxx {
         //void fillWithRandomNumbers(int maxVal); //fill matrix with random whole numbers, |number| <= 'val'
         void fillWithRandomPositiveNumbers(int maxVal); //fill matrix with random whole numbers, number <= 'val', number>=0
         void fillWithRandomPositiveNumbersSymmetric(int maxVal); //fill matrix with random whole numbers, number <= 'val', number>=0. Matrix is symmetric
-        void transpose(); //transpose matrix ?
-        BasicMatrix getTransposedMatrix(); //return transposed matrix ?
         bool multiplyBy(BasicMatrix obj); //multiply this by obj matrix. If it's impossible, return 0; else return 1
+        bool transposeAsSquare(); //transpose square matrix
+        bool transposeAsCommon(); //transpose common matrix
         //operators
         friend std::ostream& operator<<(std::ostream& os, const BasicMatrix& obj); //put matrix to the stream 'os' ?
     protected:
@@ -43,8 +43,6 @@ namespace matrixxx {
         void copyMatrixArray(double** source, double** destination); //copy values from source array to destination array
         void swap(double& a,double& b); //swap double numbers
         void swap(int& a,int& b); //swap int numbers
-        void transposeAsSquare(); //transpose square matrix
-        void transposeAsCommon(); //transpose common matrix
     };
 }
 
